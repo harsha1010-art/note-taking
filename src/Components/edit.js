@@ -60,6 +60,7 @@ export default function Edit({edit, note, setnotes}) {
     };
     const updatehndle = () => {
         const Noteedit = note.map((elm) => {
+            console.log(elm)
             if (edit === elm.id) {
                return(
                 {

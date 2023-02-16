@@ -6,8 +6,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { flexbox } from '@mui/system';
 import Edit from './edit';
+import { Grid } from '@mui/material';
 
-export default function Notes({ element, note, setnotes,setedit}) {
+export default function Notes({ element, note, setnotes,setedit,edit}) {
     const removehndler = (id) => {
         const newNotes = note.filter((elm) => {
             if (elm.id !== id) {
@@ -42,8 +43,10 @@ export default function Notes({ element, note, setnotes,setedit}) {
                     you'r Notes
                 </h1>
                 <div className='maincard'>
-
-                    <Card sx={{ minWidth: 300, backgroundColor: 'rgb(198, 224, 246)', borderRadius: '20px', maxWidth: 400 }}>
+                  
+                        
+                       
+                         <Card sx={{ minWidth: 300, backgroundColor: 'rgb(198, 224, 246)', borderRadius: '20px', maxWidth: 400 }}>
 
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div" sx={{ textTransform: 'capitalize' }} >
@@ -58,11 +61,16 @@ export default function Notes({ element, note, setnotes,setedit}) {
                             </Typography>
                         </CardContent>
                         <CardActions >
-                            <Button size="large" sx={{ color: 'grey' }} onClick={() => { edithndler(element.id) }}><Edit/></Button>
+                            <Button size="large" sx={{ color: 'grey' }} onClick={() => { edithndler(element.id) }}><Edit note={note} setnotes={setnotes} edit={edit}/></Button>
                             <Button size="large" sx={{ color: 'grey' }} onClick={() => { removehndler(element.id) }}><i class="fa-solid fa-trash"></i></Button>
                         </CardActions>
                     </Card>
-                </div></>
+                   
+                    
+                    </div>
+
+                   
+                </>
         );
     }
 }

@@ -1,5 +1,5 @@
 {
-  "homepage": "https://harsha1010-art.github.io/Note-maker",
+  "homepage": "https://harsha1010-art.github.io/note-taking",
   "name": "note-taking",
   "version": "0.1.0",
   "private": true,
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
