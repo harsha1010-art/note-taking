@@ -1,15 +1,18 @@
 import './Note.css'
+import Search from './search'
 
 
 
-function Notetaking() {
+
+function Notetaking(setSearchText) {
+    
     return (
        <div className='header'>
             <h1 className='heading'>
                 Note Keeper <i class="fa-regular fa-note-sticky"></i>
             </h1>
-            <input className='search' placeholder='Monday blues'/>
-            <button className='searchb'>Search</button>
+            <Search handleSearchNote={setSearchText} />
+            <button className='searchb'>Seaaarch</button>
         </div>
             
 

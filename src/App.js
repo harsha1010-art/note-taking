@@ -8,14 +8,15 @@ import Notes from './Components/notes';
 function App() {
   const [title, settitle] = useState("")
   const [disc, setdisc] = useState("")
-  const [note, setnotes] = useState([])
+  const [note, setnotes] = useState(getNotesFromLs)
   const [edit,setedit] =useState("")
+  const [searchText, setSearchText] = useState('');
   localStorage.setItem("note", JSON.stringify(note))
 
   return (
     <>
     <div className="App">
-      <Notetaking />
+      <Notetaking/>
       <Form title={title} settitle={settitle} disc={disc} setdisc={setdisc} note={note} setnotes={setnotes} />
       {
         note.length === 0 ? <div className='err'>
@@ -23,7 +24,9 @@ function App() {
 
         </div> : note.map((element) => {
           return (
-            <Notes element={element} key={element.id} note={note} setnotes={setnotes} setedit={setedit} edit={edit} />
+            <Notes element={element} key={element.id} note={note} setnotes={setnotes} setedit={setedit} edit={edit} notes={note.filter((notes) =>
+              notes.text.toLowerCase().includes(searchText)
+            )} />
           )
         })
 
@@ -36,7 +39,7 @@ function App() {
     </>
 
   );
-  function getnotesfromLs() {
+  function getNotesFromLs() {
     const note = JSON.parse(localStorage.getItem("note"))
     if (note) {
       return note
